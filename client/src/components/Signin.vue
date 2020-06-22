@@ -4,23 +4,23 @@
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
           <div class="card-body">
-            <h3 class="card-title text-center">Sign In</h3>
+            <h3 class="card-title text-center">ログイン</h3>
             <form @submit.prevent="signin">
-              <div class="" v-if="error">{{ error }}</div>
+              <div class="text-danger" v-if="error">{{ error }}</div>
 
               <div class="m-2">
-                <label for="email" class="">E-mail Address</label>
+                <label for="email" class="">メールアドレス</label>
                 <input type="email" v-model="email" class="form-control" id="email" placeholder="アドレス打ってね">
               </div>
 
               <div class="m-2">
-                <label for="password" class="">Password</label>
-                <input type="password" v-model="password" class="form-control" id="password" placeholder="パスワード">
+                <label for="password" class="">パスワード</label>
+                <input type="password" v-model="password" class="form-control" id="password" placeholder="パスワード打ってね">
               </div>
 
-              <button type="submit" class="btn btn-lg btn-primary btn-block">Sign In</button>
+              <button type="submit" class="btn btn-lg btn-primary btn-block">ログインする</button>
 
-              <div class=""><router-link to="/signup" class="m-4">Sign up</router-link></div>
+              <div class="my-4"><router-link to="/signup" class="m-4">新規登録はこちら</router-link></div>
             </form>
           </div>
         </div>
