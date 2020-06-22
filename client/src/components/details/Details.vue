@@ -1,11 +1,11 @@
 <template>
   <div class="container">
     <div class="alert alert-warning" v-if="error">{{ error }}</div>
-    <h3 class="">Add a new record</h3>
+    <h3 class="py-3">情報を入力してね</h3>
 
     <form @submit.prevent="addRecord" class="form-group m-2">
       <div class="m-3">
-        <label for="record_title" class="label">Title</label>
+        <label for="record_title" class="label">題名</label>
         <input
           type="text"
           id="record_title"
@@ -17,7 +17,7 @@
       </div>
 
       <div class="m-3">
-        <label for="record_year" class="label">Year</label>
+        <label for="record_year" class="label">月日</label>
         <input
           type="text"
           id="record_year"
@@ -28,16 +28,16 @@
           v-model="newRecord.year">
       </div>
 
-      <div class="">
-        <label for="tag" class="label">tag</label>
+      <div class="m-3">
+        <label for="tag" class="label">タグ</label>
         <select id="tag" class="select" v-model="newRecord.tag">
           <option disabled value="">Select an tag</option>
           <option :value="tag.id" v-for="tag in tags" :key="tag.id">{{ tag.name }}</option>
         </select>
-        <p class="pt-4">Don't see an tag? <router-link to="/record_tags" class="btn btn-success">Create one</router-link></p>
+        <p class="pt-4">タグがなければ <router-link to="/record_tags" class="btn btn-success m-3">作ろう</router-link></p>
       </div>
 
-      <input type="submit" value="Add Record" class="btn btn-primary">
+      <input type="submit" value="投稿する" class="btn btn-primary m-3">
     </form>
 
     <hr class="border border-grey-light my-6" />
@@ -47,7 +47,6 @@
         <div class="">
           <div class="">
           <p class="">
-            <svg class="" viewBox="0 0 24 24" width="24" height="24"><title>record vinyl</title><path d="M23.938 10.773a11.915 11.915 0 0 0-2.333-5.944 12.118 12.118 0 0 0-1.12-1.314A11.962 11.962 0 0 0 12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12c0-.414-.021-.823-.062-1.227zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" ></path></svg>
             {{ record.title }} &mdash; {{ record.year }}
           </p>
           <p class="">{{ getTag(record) }}</p>

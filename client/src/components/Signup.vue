@@ -1,28 +1,34 @@
 <template>
-  <div class="">
-    <div class="">
-      <h3 class="">Sign Up</h3>
-      <form @submit.prevent="signup">
-        <div class="" v-if="error">{{ error }}</div>
+  <div class="text-center container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h3 class="card-title text-center">新規登録</h3>
+            <form @submit.prevent="signup">
+              <div class="text-danger" v-if="error">{{ error }}</div>
 
-        <div class="">
-          <label for="email" class="label">E-mail Address</label>
-          <input type="email" v-model="email" class="input" id="email" placeholder="andy@web-crunch.com">
+              <div class="m-2">
+                <label for="email" class="label">メールアドレス</label>
+                <input type="email" v-model="email" class="form-control" id="email" placeholder="メールアドレス打ってね">
+              </div>
+
+              <div class="m-2">
+                <label for="password" class="label">パスワード</label>
+                <input type="password" v-model="password" class="form-control" id="password" placeholder="パスワード打ってね">
+              </div>
+
+              <div class="m-2">
+                <label for="password_confirmation" class="label">パスワード確認用</label>
+                <input type="password" v-model="password_confirmation" class="form-control" id="password_confirmation" placeholder="もう一度打ってね">
+              </div>
+              <button type="submit" class="btn btn-lg btn-primary btn-block">新規登録ありがとうございます</button>
+
+              <div class="my-4"><router-link to="/" class="m-4">ログインはこちら</router-link></div>
+            </form>
+          </div>
         </div>
-
-        <div class="">
-          <label for="password" class="label">Password</label>
-          <input type="password" v-model="password" class="input" id="password" placeholder="Password">
-        </div>
-
-        <div class="">
-          <label for="password_confirmation" class="label">Password Confirmation</label>
-          <input type="password" v-model="password_confirmation" class="input" id="password_confirmation" placeholder="Password Confirmation">
-        </div>
-        <button type="submit" class="">Sign Up</button>
-
-        <div class="my-4"><router-link to="/" class="link-grey">Sign In</router-link></div>
-      </form>
+      </div>
     </div>
   </div>
 </template>
@@ -75,11 +81,5 @@ export default {
 </script>
 
 <style scoped>
-.bg-green {
-  background-color: aqua;
-}
 
-.bg-green:hover {
-  background-color: aquamarine;
-}
 </style>
