@@ -18,7 +18,7 @@
                 <input type="password" v-model="password" class="form-control" id="password" placeholder="パスワード打ってね">
               </div>
 
-              <button type="submit" class="btn btn-lg btn-primary btn-block">ログインする</button>
+              <button type="submit" class="btn btn-lg btn-primary btn-block" @click="reload">ログインする</button>
 
               <div class="my-4"><router-link to="/signup" class="m-4">新規登録はこちら</router-link></div>
             </form>
@@ -60,6 +60,7 @@ export default {
       localStorage.signedIn = true
       this.error = ''
       this.$router.replace('/details')
+      location.reload()
     },
     signinFailed (error) {
       this.error = (error.response && error.response.data && error.response.data.error) || ''
@@ -70,6 +71,9 @@ export default {
       if (localStorage.signedIn) {
         this.$router.replace('/details')
       }
+    },
+    reload () {
+      console.log('test')
     }
   }
 }
