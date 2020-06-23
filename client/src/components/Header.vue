@@ -30,6 +30,7 @@ export default {
           delete localStorage.csrf
           delete localStorage.signedIn
           this.$router.replace('/')
+          location.reload()
         })
         .catch(error => this.setError(error, 'Cannot sign out'))
     }

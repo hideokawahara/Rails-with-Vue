@@ -12,19 +12,19 @@
           class="input form-control"
           autofocus
           autocomplete="off"
-          placeholder="Type a record name"
+          placeholder="本の題名を書こう"
           v-model="newRecord.title">
       </div>
 
       <div class="m-3">
-        <label for="record_year" class="label">月日</label>
+        <label for="record_year" class="label">点数</label>
         <input
           type="text"
           id="record_year"
           class="input form-control"
           autofocus
           autocomplete="off"
-          placeholder="Year"
+          placeholder="本の点数"
           v-model="newRecord.year">
       </div>
 

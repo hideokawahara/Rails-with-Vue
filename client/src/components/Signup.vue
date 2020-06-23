@@ -65,6 +65,7 @@ export default {
       localStorage.signedIn = true
       this.error = ''
       this.$router.replace('/details')
+      location.reload()
     },
     signupFailed (error) {
       this.error = (error.response && error.response.data && error.response.data.error) || 'Something went wrong'
