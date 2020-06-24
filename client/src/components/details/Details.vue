@@ -29,12 +29,12 @@
       </div>
 
       <div class="m-3">
-        <label for="tag" class="label">タグ</label>
+        <label for="tag" class="label">ジャンル</label>
         <select id="tag" class="select" v-model="newRecord.tag">
           <option disabled value="">Select an tag</option>
           <option :value="tag.id" v-for="tag in tags" :key="tag.id">{{ tag.name }}</option>
         </select>
-        <p class="pt-4">タグがなければ <router-link to="/record_tags" class="btn btn-success m-3">作ろう</router-link></p>
+        <p class="pt-4">ジャンルがなければ <router-link to="/record_tags" class="btn btn-success m-3">作ろう</router-link></p>
       </div>
 
       <input type="submit" value="投稿する" class="btn btn-primary m-3">
@@ -43,11 +43,14 @@
     <hr class="border border-grey-light my-6" />
 
     <ul class="row">
-      <li class="col-md-3 m-4" v-for="record in records" :key="record.id" :record="record">
+      <li class="col-md-3 m-4" v-for="record in records" :key="record.id" :record="record" style="list-style: none;">
         <div class="">
           <div class="">
           <p class="">
-            {{ record.title }} &mdash; {{ record.year }}
+            {{ record.title }}
+          </p>
+          <p class="">
+            {{ record.year }}
           </p>
           <p class="">{{ getTag(record) }}</p>
         </div>
@@ -151,6 +154,7 @@ export default {
       this.editedRecord = ''
       this.$http.secured.patch(`/api/v1/details/${record.id}`, { detail: { title: record.title, year: record.year, record_tag_id: record.tag } })
         .catch(error => this.setError(error, 'Cannot update record'))
+      location.reload()
     }
   }
 }
