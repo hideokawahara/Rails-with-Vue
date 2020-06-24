@@ -2,12 +2,12 @@
   <div class="container">
     <div class="alert alert-warning" v-if="error">{{ error }}</div>
     <div class="jumbotron">
-      <h3 class="display-5">新しいものを追加してください！</h3>
+      <h3 class="display-5">言語やコンテンツの種類を追加してください！</h3>
       <form action="" @submit.prevent="addTag">
         <div class="form-group">
           <input class="input form-control"
             autofocus autocomplete="off"
-            placeholder="Type an arist name"
+            placeholder="ここに打ってね"
             v-model="newTag.name" />
         </div>
         <input type="submit" value="追加する" class="btn btn-outline-info" />
@@ -16,11 +16,10 @@
     <hr class="" />
 
     <ul class="row">
-      <li class="col-md-3 m-4" v-for="tag in tags" :key="tag.id" :tag="tag">
+      <li class="col-md-3 m-4" v-for="tag in tags" :key="tag.id" :tag="tag" style="list-style: none;">
 
         <div class="">
           <p class="">
-            <svg class="" viewBox="0 0 20 20" width="20" height="20"><title>music tag</title><path d="M15.75 8l-3.74-3.75a3.99 3.99 0 0 1 6.82-3.08A4 4 0 0 1 15.75 8zm-13.9 7.3l9.2-9.19 2.83 2.83-9.2 9.2-2.82-2.84zm-1.4 2.83l2.11-2.12 1.42 1.42-2.12 2.12-1.42-1.42zM10 15l2-2v7h-2v-5z"></path></svg>
             {{ tag.name }}
           </p>
 
@@ -92,7 +91,7 @@ export default {
     },
     updateTag (tag) {
       this.editedTag = ''
-      this.$http.secured.patch(`/api/v1/record_tags/${tag.id}`, { record_tag: { title: tag.name } })
+      this.$http.secured.patch(`/api/v1/record_tags/${tag.id}`, { record_tag: { name: tag.name } })
         .catch(error => this.setError(error, 'Cannot update Tag'))
     }
   }
