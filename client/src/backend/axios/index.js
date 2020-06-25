@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 // const API_URL = 'http://localhost:3000'
-const API_URL = DATABASE_URL
+const API_URL = 'postgres://ekumgnfbfdwvzl:3b04c6fa376762d894521415b2542092753e39b60d3104cfb3bd8a06d7f66cf7@ec2-54-236-169-55.compute-1.amazonaws.com:5432/deg9j7qdtmt526'
 // Railsのアドレス
 
 const securedAxiosInstance = axios.create({
