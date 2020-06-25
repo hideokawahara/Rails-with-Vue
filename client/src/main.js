@@ -6,6 +6,8 @@ import router from './router'
 import VueAxios from 'vue-axios'
 import { securedAxiosInstance, plainAxiosInstance } from './backend/axios'
 
+// require('dotenv').config()
+
 Vue.config.productionTip = false
 
 Vue.use(VueAxios, {
