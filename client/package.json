@@ -64,7 +64,7 @@
     "karma-spec-reporter": "0.0.32",
     "karma-webpack": "^4.0.2",
     "mocha": "^8.0.1",
-    "node-notifier": "^7.0.1",
+    "node-notifier": "^8.0.1",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "ora": "^4.0.4",
     "phantomjs-prebuilt": "^2.1.16",
